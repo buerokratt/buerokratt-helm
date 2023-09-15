@@ -24,7 +24,7 @@ spec:
               value: INFO
           volumeMounts:
             - name: dsl
-              mountPath: /byk-ruuter-pub/DSL/
+              mountPath: {{ .Values.byk.ruuter.dsl.path }}
             - name: urls-env
               mountPath: /usr/local/tomcat/urls.env.json
               subPath: public.urls.docker.json
@@ -40,7 +40,7 @@ spec:
             periodSeconds: 10
       initContainers:
         - name: dsl-installer
-          image: ghcr.io/buerokratt/buerokratt-dsl:pre-alpha-1.0.22
+          image: {{ .Values.byk.dsl.image.registry }}/{{ .Values.byk.dsl.image.repository }}:{{ .Values.byk.dsl.image.tag }}
           volumeMounts:
             - name: dsl
               mountPath: /root/DSL/
@@ -48,7 +48,7 @@ spec:
           args:
             - "-c"
             - >
-              cp -r /Ruuter/public/v2/* /root/DSL/ && echo 'moved'
+              ls /Ruuter/public/v2/ && cp -r /Ruuter/public/v2/* /root/DSL/ && echo 'moved'
       volumes:
         - name: dsl
           emptyDir: {}
