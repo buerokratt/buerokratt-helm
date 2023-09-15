@@ -40,8 +40,7 @@ byk:
       path: "/byk-ruuter-priv-v1/configurations/"
   resql:
     dsl:
-      repo: https://github.com/buerokratt/Training-Module.git
-      path: DSL/Resql
+      path: "/byk-resql/DSL/"
   dmapper:
     dsl:
       repo: https://github.com/buerokratt/Training-Module.git
