@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: byk-dsl
+spec:
+  selector:
+    matchLabels:
+      app: byk-dsl
+  template:
+    metadata:
+      labels:
+        app: byk-dsl
+    spec:
+      containers:
+      - name: byk-dsl
+        image: ghcr.io/buerokratt/buerokratt-dsl:pre-alpha-1.0.22
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+          name: http
