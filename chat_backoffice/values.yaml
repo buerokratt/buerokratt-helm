@@ -43,8 +43,7 @@ byk:
       path: "/byk-resql/DSL/"
   dmapper:
     dsl:
-      repo: https://github.com/buerokratt/Training-Module.git
-      path: DSL/DataMapper
+      path: "/workspace/app/views/byk/"
   liquibase:
     dsl:
       repo: https://github.com/buerokratt/Buerokratt-Chatbot.git
