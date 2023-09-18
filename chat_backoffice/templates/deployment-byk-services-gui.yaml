@@ -46,8 +46,8 @@ spec:
           args:
             - "-c"
             - >
-              ls -l /Ruuter/public/v2/ && mkdir /root/DSL/public && mv -r /Ruuter/public/v2/* /root/DSL/public && echo 'Public DSL moved' &&
-              ls -l /Ruuter/private/v2/ && mkdir /root/DSL/private && mv -r /Ruuter/private/v2/* /root/DSL/private && echo 'Private DSL moved'
+              ls -l /Ruuter/public/v2/ && mkdir -p /root/DSL/public && mv /Ruuter/public/v2/* /root/DSL/public && echo 'Public DSL moved' &&
+              ls -l /Ruuter/private/v2/ && mkdir -p /root/DSL/private && mv /Ruuter/private/v2/* /root/DSL/private && echo 'Private DSL moved'
       volumes:
         - name: dsl
           emptyDir: {}
