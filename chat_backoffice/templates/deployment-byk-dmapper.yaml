@@ -17,9 +17,6 @@ spec:
           ports:
             - containerPort: 3000
               name: http
-          volumeMounts:
-            - name: dsl
-              mountPath: {{ .Values.byk.dmapper.dsl.path }}
           livenessProbe:
             httpGet:
               path: /
@@ -32,17 +29,3 @@ spec:
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 10
-      initContainers:
-        - name: dsl-installer
-          image: {{ .Values.byk.dsl.image.registry }}/{{ .Values.byk.dsl.image.repository }}:{{ .Values.byk.dsl.image.tag }}
-          volumeMounts:
-            - name: dsl
-              mountPath: /root/DSL/
-          command: ["/bin/sh"]
-          args:
-            - "-c"
-            - >
-              ls -l /DataMapper/v2 && cp -r /DataMapper/v2/* /root/DSL/ && echo 'moved'
-      volumes:
-        - name: dsl
-          emptyDir: {}

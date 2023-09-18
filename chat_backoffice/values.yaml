@@ -41,9 +41,6 @@ byk:
   resql:
     dsl:
       path: "/byk-resql/DSL/"
-  dmapper:
-    dsl:
-      path: "/workspace/app/views/byk/"
   liquibase:
     dsl:
       repo: https://github.com/buerokratt/Buerokratt-Chatbot.git
