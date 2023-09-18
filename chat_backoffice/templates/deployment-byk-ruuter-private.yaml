@@ -46,7 +46,7 @@ spec:
           args:
             - "-c"
             - >
-              ls -l /Ruuter/private/v2/ && cp -r /Ruuter/private/v2/* /root/DSL/ && echo 'moved'
+              ls -l /Ruuter/private/v2/ && mv -r /Ruuter/private/v2/* /root/DSL/ && echo 'moved'
       volumes:
         - name: dsl
           emptyDir: {}
