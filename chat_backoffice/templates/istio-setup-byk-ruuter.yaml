@@ -1,35 +1,35 @@
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
-  name: byk-ruuter-private-v1
+  name: byk-ruuter
 spec:
-  host: byk-ruuter-private-v1
+  host: byk-ruuter
   subsets:
-  - name: byk-ruuter-private-v1
+  - name: byk-ruuter
     labels:
-      app: byk-ruuter-private-v1
+      app: byk-ruuter
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: byk-ruuter-private-v1
+  name: byk-ruuter
 spec:
   hosts:
-  - byk-ruuter-private-v1
+  - byk-ruuter
   http:
   - name: allow
     match:
     - sourceLabels:
-        app: byk-ruuter-private
+        app: byk-ruuter-v1
     route:
     - destination:
-        host: byk-ruuter-private-v1
-        subset: byk-ruuter-private-v1
+        host: byk-ruuter
+        subset: byk-ruuter
   - name: reject
     route:
     - destination:
-        host: byk-ruuter-private-v1
-        subset: byk-ruuter-private-v1
+        host: byk-ruuter
+        subset: byk-ruuter
     fault:
       abort:
         percentage:
