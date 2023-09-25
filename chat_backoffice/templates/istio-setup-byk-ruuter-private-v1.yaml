@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: byk-ruuter-private-v1
+spec:
+  host: byk-ruuter-private-v1
+  subsets:
+  - name: byk-ruuter-private-v1
+    labels:
+      app: byk-ruuter-private-v1
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: byk-ruuter-private-v1
+spec:
+  hosts:
+  - byk-ruuter-private-v1
+  http:
+  - match:
+    - sourceLabels:
+        app: byk-ruuter-private
+    route:
+    - destination:
+        host: byk-ruuter-private-v1
+        subset: byk-ruuter-private-v1
