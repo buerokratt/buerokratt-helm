@@ -44,7 +44,7 @@ spec:
           volumeMounts:
             - name: dsl
               mountPath: /root/DSL/
-            - name: config-volume
+            - name: byk-dsl-services
               mountPath: "/etc/app-config"
           command: ["/bin/sh"]
           args:
