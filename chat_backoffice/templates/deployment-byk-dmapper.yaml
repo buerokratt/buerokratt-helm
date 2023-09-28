@@ -29,3 +29,7 @@ spec:
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 10
+      volumes:
+        - name: byk-dsl-services
+          persistentVolumeClaim:
+            claimName: byk-dsl-services

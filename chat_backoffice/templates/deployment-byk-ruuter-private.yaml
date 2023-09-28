@@ -53,3 +53,6 @@ spec:
         - name: urls-env
           configMap:
             name: urls-env-config
+        - name: byk-dsl-services
+          persistentVolumeClaim:
+            claimName: byk-dsl-services
