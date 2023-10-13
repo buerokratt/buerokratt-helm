@@ -2,7 +2,7 @@ name: Deploy Helm Chart
 on:
   push:
     branches:
-      - main
+      - test
     paths:
       - 'chart_backoffice/Chart.yaml'
 
