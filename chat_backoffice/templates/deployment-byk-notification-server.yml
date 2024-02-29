@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: notifications-node
-          image: "{{ .Values.images.notification.registry }}/{{ .Values.images.notification.repository }}:{{ .Values.images.notification.tag }}"
+          image: riaee/byk:notification-server-1.0.0 
           ports:
             - containerPort: 4040
           env:
